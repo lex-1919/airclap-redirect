@@ -6,20 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Airclap</title>
     <script>
-        window.onload = function (){
-            window.location.href = 'tech.gentleflow.airclap://login-callback/';
+        function openApp() {
+            var currentURL = window.location.href;
+            var params = currentURL.split('#')[1];
+            window.location.href = 'tech.gentleflow.airclap://login-caliback/#'+params;
+        }
+        window.onload = function(){
+            setTimeout(function() {
+               openApp();
+            }, 500);
         };
         </script>
-
 </head>
 <body style="background-color: #181826; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <div style="display: flex; flex-direction: column; align-items: center; justify-items: center;">
         <img src="https://user-images.githubusercontent.com/37242793/258020592-7997e2e7-6c30-4440-979d-1e2d84e86bea.svg" alt="airclap-icon" style="width: 72px;">
         <p style="color: antiquewhite; font-size: 16px; margin-top: 20px;">Signing in…</p>
 
-        <a href="tech.gentleflow.airclap://login-callback/" style="text-decoration: none; ">
+        <a style="text-decoration: none; ">
 
-        <button style="width: 256px; height: 48px; background-color: #9AD91E; color: #181826; font-size: 14px; font-weight: 500; border-radius: 12px; border: none; cursor: pointer; margin-top: 20px;">Open Airclap</button>
+        <button onclick="openApp()" style="width: 256px; height: 48px; background-color: #9AD91E; color: #181826; font-size: 14px; font-weight: 500; border-radius: 12px; border: none; cursor: pointer; margin-top: 20px;">Open Airclap</button>
         </a>
     </div>
 </body>
